@@ -41,3 +41,29 @@ A_out_2 = [
 
 # Marcação Inicial
 x0_2 = [1, 0]
+
+# -- Caso 3: Rede com Bifurcação --
+#
+#   P1 --t1--> P2
+#     \--t2--> P3
+#
+# A partir de x0, t1 e t2 estão habilitadas ao mesmo tempo.
+
+# Matriz Pre: A_in_3[lugar][transição] = tokens consumidos
+A_in_3 = [
+    #  t1  t2
+    [1, 1],  # P1
+    [0, 0],  # P2
+    [0, 0],  # P3
+]
+
+# Matriz Post: A_out_3[lugar][transição] = tokens produzidos
+A_out_3 = [
+    #  t1  t2
+    [0, 0],  # P1
+    [1, 0],  # P2
+    [0, 1],  # P3
+]
+
+# Marcação Inicial
+x0_3 = [1, 0, 0]
