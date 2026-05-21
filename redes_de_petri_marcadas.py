@@ -44,26 +44,31 @@ x0_2 = [1, 0]
 
 # -- Caso 3: Rede com Bifurcação --
 #
-#   P1 --t1--> P2
-#     \--t2--> P3
+#        t1 --> P2 --t3--> P4
+#   P1 --|
+#        t2 --> P3 --t4--> P5
 #
-# A partir de x0, t1 e t2 estão habilitadas ao mesmo tempo.
+# Dois caminhos a partir de x0, cada um com mais um passo.
 
 # Matriz Pre: A_in_3[lugar][transição] = tokens consumidos
 A_in_3 = [
-    #  t1  t2
-    [1, 1],  # P1
-    [0, 0],  # P2
-    [0, 0],  # P3
+    #  t1  t2  t3  t4
+    [1, 1, 0, 0],  # P1
+    [0, 0, 1, 0],  # P2
+    [0, 0, 0, 1],  # P3
+    [0, 0, 0, 0],  # P4
+    [0, 0, 0, 0],  # P5
 ]
 
 # Matriz Post: A_out_3[lugar][transição] = tokens produzidos
 A_out_3 = [
-    #  t1  t2
-    [0, 0],  # P1
-    [1, 0],  # P2
-    [0, 1],  # P3
+    #  t1  t2  t3  t4
+    [0, 0, 0, 0],  # P1
+    [1, 0, 0, 0],  # P2
+    [0, 1, 0, 0],  # P3
+    [0, 0, 1, 0],  # P4
+    [0, 0, 0, 1],  # P5
 ]
 
 # Marcação Inicial
-x0_3 = [1, 0, 0]
+x0_3 = [1, 0, 0, 0, 0]
